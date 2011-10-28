@@ -49,7 +49,7 @@
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
  °* OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
- * 
+ *
  * ---------------------------------------------------------------------------
  *  MIT:
  *
@@ -59,10 +59,10 @@
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -70,7 +70,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- * 
+ *
  * ---------------------------------------------------------------------------
  *
  *  Version: 0.0.1
@@ -161,18 +161,18 @@ $.widget("ui.video", {
 
 			$.each( videoEvents, function(){
 					if( self["_event_" + this] ) {
-						self.element.bind( 
-							this + ".video", 
-							$.proxy(self["_event_" + this],self) 
+						self.element.bind(
+							this + ".video",
+							$.proxy(self["_event_" + this],self)
 						);
 					} else {
-						self.element.bind( 
-							this + ".video", 
+						self.element.bind(
+							this + ".video",
 							$.proxy(function(){
 									console.log("event %s not implemented", this, arguments)
 								},
 								this
-							) 
+							)
 						);
 					}
 				}
@@ -217,7 +217,7 @@ $.widget("ui.video", {
 			 * @type {!jQuery}
 			 * @private
 			 */
-			self._controls = $('<div/>', 
+			self._controls = $('<div/>',
 				{
 					'class': 'ui-widget ui-widget-content ui-corner-all ui-video-control'
 				}
@@ -236,7 +236,7 @@ $.widget("ui.video", {
 			 * @type {!jQuery}
 			 * @private
 			 */
-			self._progressDiv = $('<div/>', 
+			self._progressDiv = $('<div/>',
 				{
 					'class': 'ui-video-progress'
 				}
@@ -247,7 +247,7 @@ $.widget("ui.video", {
 			 * @type {!jQuery}
 			 * @private
 			 */
-			self._currentProgressSpan = $('<span/>', 
+			self._currentProgressSpan = $('<span/>',
 				{
 					'class': 'ui-video-current-progress', 'text': '00:00'
 				}
@@ -266,7 +266,7 @@ $.widget("ui.video", {
 			 * @type {!jQuery}
 			 * @private
 			 */
-			self._durationSpan = $('<span/>', 
+			self._durationSpan = $('<span/>',
 				{
 					'class': 'ui-video-length', 'text': '00:00'
 				}
@@ -278,7 +278,7 @@ $.widget("ui.video", {
 			 * @private
 			 */
 
-			self._muteIcon = $('<div/>', 
+			self._muteIcon = $('<div/>',
 				{
 					'class': 'ui-icon ui-icon-volume-on ui-video-mute'
 				}
@@ -290,7 +290,7 @@ $.widget("ui.video", {
 			 * @type {!jQuery}
 			 * @private
 			 */
-			self._playIcon = $('<div/>', 
+			self._playIcon = $('<div/>',
 				{
 					'class': 'ui-icon ui-icon-play ui-video-play'
 				}
@@ -314,7 +314,7 @@ $.widget("ui.video", {
 			 * @type {!jQuery}
 			 * @private
 			 */
-			self._seekNextIcon = $('<div/>', 
+			self._seekNextIcon = $('<div/>',
 				{
 					'class': 'ui-icon ui-icon-seek-next ui-video-seek-next'
 				}
@@ -326,7 +326,7 @@ $.widget("ui.video", {
 			 * @type {!jQuery}
 			 * @private
 			 */
-			self._volumeSlider = $('<div/>', 
+			self._volumeSlider = $('<div/>',
 				{
 					'class': 'ui-video-volume-slider'}
 			)
@@ -419,7 +419,7 @@ $.widget("ui.video", {
 			 * @type {!jQuery}
 			 * @private
 			 */
-			self._bufferStatus = $('<div/>', 
+			self._bufferStatus = $('<div/>',
 				{
 					'class': 'ui-video-buffer-status ui-corner-all'
 				}
@@ -427,7 +427,7 @@ $.widget("ui.video", {
 
 
 		},
-		/** 
+		/**
 		 * @private
 		 */
 		_scrubberHoverUpdate: function( elem, value ) {
@@ -447,7 +447,7 @@ $.widget("ui.video", {
 
 
 		},
-		/** 
+		/**
 		 * @private
 		 */
 		_playPause: function() {
@@ -458,7 +458,7 @@ $.widget("ui.video", {
 				self.pause();
 			}
 		},
-		/** 
+		/**
 		 * @private
 		 */
 		_mute: function() {
@@ -466,7 +466,7 @@ $.widget("ui.video", {
 			var muted = self.element[0].muted = !self.element[0].muted;
 			self._muteIcon.toggleClass('ui-icon-volume-on', !muted).toggleClass('ui-icon-volume-off', muted);
 		},
-		/** 
+		/**
 		 * @private
 		 */
 		_hideControls: function(){
@@ -476,7 +476,7 @@ $.widget("ui.video", {
 			.delay(self.options.fadeDelay)
 			.fadeOut(self.options.fadeSpeed);
 		},
-		/** 
+		/**
 		 * @private
 		 */
 		_showControls: function(){
@@ -485,7 +485,7 @@ $.widget("ui.video", {
 			.stop(true,true)
 			.fadeIn(self.options.fadeSpeed);
 		},
-		/** 
+		/**
 		 * @private
 		 */
 		_hideSpinner: function(){
@@ -496,7 +496,7 @@ $.widget("ui.video", {
 				self._spinnerContainer.fadeOut('fast').remove();
 			}
 		},
-		/** 
+		/**
 		 * @private
 		 */
 		_showSpinner: function(){
@@ -521,9 +521,9 @@ $.widget("ui.video", {
 
 					},50);
 			}
-		},		
+		},
 
-		/** 
+		/**
 		 * @private
 		 */
 		_formatTime: function( seconds ) {
@@ -535,8 +535,8 @@ $.widget("ui.video", {
 		},
 
 
-		// Events 
-		/** 
+		// Events
+		/**
 		 * @private
 		 */
 		_event_progress: function(e) {
@@ -552,63 +552,63 @@ $.widget("ui.video", {
 			}
 
 		},
-		/** 
+		/**
 		 * @private
 		 */
 		_event_seeked: function() {
 			var self = this;
 			self._hideSpinner();
 		},
-		/** 
+		/**
 		 * @private
 		 */
 		_event_canplay: function() {
 			var self = this;
 			self._hideSpinner();
 		},
-		/** 
+		/**
 		 * @private
 		 */
 		_event_loadstart: function() {
 			var self = this;
 			self._showSpinner();
 		},
-		/** 
+		/**
 		 * @private
 		 */
 		_event_durationchange: function() {
 			var self = this;
 			self._showSpinner();
 		},
-		/** 
+		/**
 		 * @private
 		 */
 		_event_seeking: function() {
 			var self = this;
 			self._showSpinner();
 		},
-		/** 
+		/**
 		 * @private
 		 */
 		_event_waiting: function() {
 			var self = this;
 			self._showSpinner();
 		},
-		/** 
+		/**
 		 * @private
 		 */
 		_event_loadedmetadata: function() {
 			var self = this;
 			self._durationSpan.text(self._formatTime(self.element[0].duration));
 		},
-		/** 
+		/**
 		 * @private
 		 */
 		_event_play: function() {
 			var self = this;
 			self._playIcon.addClass('ui-icon-pause').removeClass('ui-icon-play');
 		},
-		/** 
+		/**
 		 * @private
 		 */
 		_event_pause: function() {
@@ -616,7 +616,7 @@ $.widget("ui.video", {
 			self._playIcon.removeClass('ui-icon-pause').addClass('ui-icon-play');
 		},
 
-		/** 
+		/**
 		 * @private
 		 */
 		_event_timeupdate: function() {
@@ -625,7 +625,7 @@ $.widget("ui.video", {
 				var duration = self.element[0].duration;
 				var currentTime = self.element[0].currentTime;
 				self._scrubberSlider.slider(
-					'value', 
+					'value',
 					[(currentTime/duration)*100]
 				);
 				self._durationSpan.text(self._formatTime(duration));
@@ -633,7 +633,7 @@ $.widget("ui.video", {
 			}
 		},
 
-		/** 
+		/**
 		 * @private
 		 */
 		_event_resize: function() {

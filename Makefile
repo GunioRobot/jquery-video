@@ -5,7 +5,7 @@ JS_COMPILER_ARGS = \
 				   SIMPLE_OPTIMIZATIONS \
 				   --charset utf-8 \
 				   --summary_detail_level 3 \
-				   --warning_level QUIET 
+				   --warning_level QUIET
 
 CSS_COMPILER = csstidy
 CSS_COMPILER_ARGS = --compress_colors=true --compress_font-weight=true --remove_last_\;=true --merge_selectors=2 --optimise_shorthands=2 --template=highest
